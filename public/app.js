@@ -30,7 +30,7 @@ $(document).on("click", "#comments-btn", function() {
       console.log(data.Comments);
 
       for(let i = 0; i < data.Comments.length; i++){
-        $("#comments").append("<div class='card'> <div class='card-body'> <h5 class='card-title'>" + data.Comments[i].title + "</h5><h6 class='card-subtitle mb-2 text-muted'>by " + data.Comments[i].name + "</h6><p class='card-text'>" + data.Comments[i].body + "</p></div></div>");  
+        $("#comments").append("<div class='card'> <div class='card-body'> <button id='delete' data-id='"+ data._id + "' data-name='" + data.Comments[i]._id + "'>Delete</button> <h5 class='card-title'>" + data.Comments[i].title + "</h5><h6 class='card-subtitle mb-2 text-muted'>by " + data.Comments[i].name + "</h6><p class='card-text'>" + data.Comments[i].body + "</p></div></div>");  
       } 
     }
   });
@@ -58,6 +58,21 @@ $(document).on("click", "#saveComment", function() {
 
 
 });
+
+$(document).on("click","#delete", function(){
+
+  var thisId = $(this).attr("data-id");
+  var commentId = $(this).attr("data-name");
+
+  $.ajax({
+    method: "Post",
+    url: "/articles/" + thisId + "/deletecomment",
+    data: {_id: commentId}
+  }).then(function(data){
+    console.log(data);
+    $("#comments").empty();
+  })
+})
   
 $(document).on("click","#scraper", function(){
   $.ajax({

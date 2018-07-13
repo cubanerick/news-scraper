@@ -85,6 +85,17 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 
+app.post("/articles/:id/deletecomment", function(req, res) {
+  
+  db.Comments.remove(req.body).then(function(dbComments) {
+    return db.Article.findOneAndUpdate({ _id: req.params.id }, {$pull:{Comments: dbComments._id}});
+  }).then(function(dbArticle) {
+      res.json(dbArticle);
+  }).catch(function(err) {
+      res.json(err);
+  });
+});
+
 app.get("/", function(req, res){
   res.load("./index.html");
 });
