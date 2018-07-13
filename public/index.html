@@ -2,56 +2,69 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Scraping With Mongoose</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>Technology News Scraper</title>
     <style>
-      body { background-color: #F2F6D0 }
-      #wrapper {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 5%;
-      }
-      #articles {
-        display: inline-block;
-        overflow: auto;
-        width: 60%;
-        height: 700px;
-      }
-      #notes {
-        float: right;
-        width: 30%;
-      }
-      textarea, input {
-        display: block;
-        width: 100%;
-        background-color: #FCF5C7;
-      }
-      input {
-        height: 36px;
-        font-size: 24px;
-      }
-      textarea {
-        height: 200px;
-        font-size: 18px;
-      }
+     li {
+       margin: 7%;
+     }
+
+     .card {
+      width: 18rem;
+      margin: 7%;
+     }
+
+     #scraper{
+      float: right;
+      margin-top: 7%;
+     }
     </style>
   </head>
   <body>
+
     <div id="wrapper">
-      <button id="scraper" class="btn">Scrape</button>
-      <h1>Technology News Scraper</h1>
-      <div class="articles-wrapper">
-          <ul id="articles">
+      <div class="row">
+        <div class="col-md-1">
+          <button id="scraper" class="btn">Scrape  <img src="./images/icons8-new-york-40.png"/></button>
+        </div>
 
-          </ul>
+        <div class="col-md-11">
+            <h1>Technology News Scraper</h1>
+        </div>
       </div>
-      <div class="comments-wrapper">
-          <ul id="comments">
 
-          </ul>
+      <div class="row">
+        <div class="col-md-6 articles-wrapper">
+            <ul id="articles">
+  
+            </ul>
+        </div>
+
+        <div class="col-md-6 comments-wrapper">
+          
+          <div class="row">
+            <div class="col-md-12">
+
+              <div id="newcommentsform">
+    
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div id="comments" class="col-md-12">
+                
+              </div>
+            </div>
+
+        </div>
+
       </div>
+
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
+
   </body>
 </html>
