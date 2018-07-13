@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 var databaseUrl = "mongodb://localhost/newsScraper";
-
+mongoose.Promise = Promise;
 if(process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 } else{
